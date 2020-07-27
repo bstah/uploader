@@ -11,5 +11,7 @@ For media-upload-backend run commands:
 ```
 composer install
 
+php artisan storage:link
+
 php artisan serve
 ```
