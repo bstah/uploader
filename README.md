@@ -7,7 +7,7 @@ npm install
 ng serve --open
 ```
 
-For media-upload-backend run commands:
+For media-upload-backend run commands in order:
 ```
 composer install
 
