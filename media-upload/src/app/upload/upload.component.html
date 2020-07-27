@@ -1,0 +1,31 @@
+<div class="input">
+<label>file:
+  <input id="mediaFile" [formControl]="fileInput" type="file" (change)="fileChange($event)" placeholder="name" accept=".jpg,.png,.mp4,.pdf" />
+  <div *ngIf="file">
+  	<img class="image" *ngIf="file.name.toUpperCase().endsWith('.JPG')||file.name.toUpperCase().endsWith('.PNG')" [src]="fileSource">
+  	<video *ngIf="file.name.toUpperCase().endsWith('.MP4')" controls>
+  		<source [src]="fileSource" type="video/mp4">
+  	</video>
+  	<iframe *ngIf="file.name.toUpperCase().endsWith('.PDF')" [src]="fileSource"></iframe>
+  	<!-- <embed *ngIf="file.name.endsWith('.pdf')" [src]="fileSource"> -->
+  	<!-- <object *ngIf="file.name.endsWith('.pdf')" [data]="fileSource" type="application/pdf"></object> -->
+  	<br>
+  	<button (click)="upload()">Upload</button>
+  </div>
+</label>
+</div>
+
+<ul class="list">
+	<li *ngFor="let item of list">
+		<button (click)="changeSelection(item)">{{item}}</button>
+		<!-- <img class="image" *ngIf="hero.endsWith('.jpg')||hero.endsWith('.png')" src="http://localhost:8000/storage/{{hero}}"> -->
+		<p *ngIf="fileLoad">files</p>
+	</li>
+</ul>
+<div *ngIf="selectedOld" class="media">
+	<img class="mediaItem" *ngIf="selectedOld.toUpperCase().endsWith('.JPG')||selectedOld.toUpperCase().endsWith('.PNG')" [src]="selectedItem">
+  	<video class="mediaItem" *ngIf="selectedOld.toUpperCase().endsWith('.MP4')" controls>
+  		<source [src]="selectedItem" type="video/mp4">
+  	</video>
+  	<iframe class="mediaItem" *ngIf="selectedOld.toUpperCase().endsWith('.PDF')" [src]="selectedItem"></iframe>
+</div>
