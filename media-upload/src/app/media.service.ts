@@ -13,12 +13,7 @@ export class MediaService {
 	}
 
 	upload(file): Observable<any>{
-		return this.http.post<any>(this.baseUrl+'upload',file)
-		// .subscribe(res =>{
-		// 	// console.log(res);
-		// 	// return res;
-		// }
-		// );
+		return this.http.post<any>(this.baseUrl+'upload',file);
 	}
 
 	getBaseUrl(){
